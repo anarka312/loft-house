@@ -240,13 +240,22 @@ a:hover {
   margin-bottom: 88px;
 }
 
+.appartments__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
 .card {
+  overflow: hidden;
   position: relative;
   display: inline-block;
+  color: #fff;
 }
 .card::before {
   content: "";
   position: absolute;
+  z-index: 6;
   left: 0;
   top: 0;
   width: 100%;
@@ -257,6 +266,7 @@ a:hover {
   opacity: 0;
   content: "";
   position: absolute;
+  z-index: 7;
   left: 15px;
   top: 15px;
   right: 15px;
@@ -271,8 +281,15 @@ a:hover {
   opacity: 1;
 }
 
-.card__img:hover {
+.card__img {
+  position: relative;
+  z-index: 5;
+  transition: all 0.2s ease-in;
+}
+
+.card:hover .card__img {
   transform: scale(1.1);
+  filter: contrast(110%) brightness(1.2) saturate(1.2);
 }
 
 .card__title {
